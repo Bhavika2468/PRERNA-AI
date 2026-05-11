@@ -1,0 +1,37 @@
+# PRERNA Speech Intelligence Backend — Requirements
+# All packages run LOCALLY. Zero per-request API costs.
+# Designed for 4GB RAM, i5 CPU environment.
+
+# ── Web Framework ──
+fastapi==0.115.0
+uvicorn==0.30.6
+python-multipart==0.0.9        # Required for FastAPI file uploads
+python-dotenv==1.0.0
+
+# ── Local Speech-to-Text (CPU, int8 quantized, ~500MB RAM) ──
+faster-whisper==1.0.3
+
+# ── Audio Signal Processing (no GPU needed) ──
+librosa==0.10.2
+soundfile==0.12.1
+audioread==3.0.1
+
+# ── Video Processing ──
+moviepy==1.0.3
+opencv-python==4.10.0.84
+
+# ── Facial Analysis (local pre-trained weights) ──
+mediapipe==0.10.14
+deepface==0.0.93
+tf-keras==2.16.0               # Required by DeepFace (lighter than full TF)
+
+# ── Numerical Computing ──
+numpy==1.26.4
+
+# NOTE: The following are intentionally EXCLUDED:
+# - agno                 (replaced by plain Python functions)
+# - together             (replaced by InsForge AI Gateway in the frontend)
+# - langchain            (replaced by CLAW Decision Tree)
+# - qdrant-client        (replaced by InsForge PostgreSQL)
+# - streamlit            (replaced by PRERNA web frontend)
+# - openai               (replaced by InsForge AI via frontend JS)

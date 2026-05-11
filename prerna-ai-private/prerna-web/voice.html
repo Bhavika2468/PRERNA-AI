@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Voice Navigator</title>
+    <meta name="description" content="PRERNA AI Voice Navigator — Speak your questions and get personalized career, study, and crisis support.">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="voice.css">
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">PRERNA AI</div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="ri-dashboard-line"></i> Overview</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-group-line"></i> Students</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-user-star-line"></i> Mentors</a></li>
+            <li class="nav-item"><a href="scholarships.html" class="nav-link"><i class="ri-graduation-cap-line"></i> Scholarships</a></li>
+            <li class="nav-item"><a href="chat.html" class="nav-link"><i class="ri-robot-2-line"></i> AI Assistant</a></li>
+            <li class="nav-item"><a href="sahara.html" class="nav-link" style="color:#c084fc;"><i class="ri-heart-pulse-line"></i> Sahara Support</a></li>
+            <li class="nav-item"><a href="disha.html" class="nav-link" style="color:#38bdf8;"><i class="ri-compass-discover-line"></i> Disha Navigator</a></li>
+            <li class="nav-item"><a href="voice.html" class="nav-link active" style="color:#a78bfa; border-color:rgba(167,139,250,0.3); background:rgba(167,139,250,0.08);"><i class="ri-mic-2-line"></i> Voice Navigator</a></li>
+            <li class="nav-item"><a href="manas.html" class="nav-link" style="color:#6ee7b7;"><i class="ri-mental-health-line"></i> Manas Wellbeing</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ri-menu-line"></i></button>
+                <h2 class="page-title">Voice Navigator</h2>
+            </div>
+            <div class="user-profile">
+                <i class="ri-mic-2-line" style="color:#a78bfa;"></i>
+                <span id="header-user-name">Loading...</span>
+            </div>
+        </header>
+
+        <div class="voice-container">
+
+            <!-- Status Banner -->
+            <div class="tone-status-bar" id="tone-status-bar">
+                <div class="tone-dot" id="tone-dot"></div>
+                <span id="tone-label">Ready to listen</span>
+                <span class="tone-score-chip" id="tone-score-chip" style="display:none;"></span>
+            </div>
+
+            <!-- Central Orb -->
+            <div class="orb-section">
+                <div class="orb-ring" id="orb-ring">
+                    <div class="orb" id="main-orb">
+                        <div class="orb-inner">
+                            <i class="ri-mic-2-line" id="orb-icon"></i>
+                        </div>
+                        <div class="orb-pulse" id="orb-pulse"></div>
+                        <div class="orb-pulse orb-pulse-2" id="orb-pulse-2"></div>
+                    </div>
+                </div>
+                <div class="orb-status" id="orb-status">Tap the orb to speak</div>
+            </div>
+
+            <!-- Transcript Live -->
+            <div class="transcript-box" id="transcript-box" style="display:none;">
+                <div class="transcript-label"><i class="ri-file-text-line"></i> Hearing:</div>
+                <div class="transcript-text" id="transcript-text"></div>
+            </div>
+
+            <!-- Tone Analysis Card -->
+            <div class="tone-card" id="tone-card" style="display:none;">
+                <div class="tone-card-header">
+                    <i class="ri-brain-line"></i> CLAW Tone Analysis
+                    <span class="tone-tier" id="tone-tier-badge"></span>
+                </div>
+                <div class="tone-bars" id="tone-bars"></div>
+                <div class="tone-summary" id="tone-summary"></div>
+            </div>
+
+            <!-- AI Response -->
+            <div class="response-card" id="response-card" style="display:none;">
+                <div class="response-header">
+                    <div class="response-avatar" id="response-avatar">🌸</div>
+                    <div>
+                        <h4 id="response-persona">Prerna Didi</h4>
+                        <span class="response-mode" id="response-mode">Career Guidance</span>
+                    </div>
+                    <button class="speak-btn" id="speak-btn" title="Read aloud">
+                        <i class="ri-volume-up-line"></i>
+                    </button>
+                </div>
+                <div class="response-text" id="response-text"></div>
+            </div>
+
+            <!-- Crisis Override Card -->
+            <div class="crisis-card" id="crisis-card" style="display:none;">
+                <div class="crisis-header">
+                    <i class="ri-shield-cross-line"></i> Safety Alert — You are Not Alone
+                </div>
+                <p>Our system detected that you may need immediate support. You don't have to face this alone.</p>
+                <div class="crisis-actions">
+                    <a href="sahara.html" class="crisis-btn">
+                        <i class="ri-heart-pulse-line"></i> Open Sahara Safe Space
+                    </a>
+                    <a href="tel:1098" class="crisis-btn crisis-btn-red">
+                        <i class="ri-phone-fill"></i> Childline: 1098
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Prompts -->
+            <div class="quick-prompts" id="quick-prompts">
+                <p class="prompts-label">Try saying:</p>
+                <div class="prompts-grid">
+                    <button class="prompt-chip" data-text="What scholarships can I apply for?">
+                        <i class="ri-graduation-cap-line"></i> Scholarships for me
+                    </button>
+                    <button class="prompt-chip" data-text="How do I become a nurse in India?">
+                        <i class="ri-nurse-line"></i> How to become a nurse
+                    </button>
+                    <button class="prompt-chip" data-text="I am feeling very scared and don't know what to do">
+                        <i class="ri-heart-line"></i> I need support
+                    </button>
+                    <button class="prompt-chip" data-text="Help me study photosynthesis">
+                        <i class="ri-book-2-line"></i> Help me study
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── DEEP ANALYSIS SECTION ── -->
+            <div class="deep-analysis-section">
+                <div class="da-header">
+                    <div class="da-header-icon"><i class="ri-microscope-line"></i></div>
+                    <div>
+                        <h3>Deep Speech Analysis</h3>
+                        <p>Record or upload a short video of yourself speaking. The CLAW engine will analyze your facial expressions, vocal signals, and emotional tone — completely offline.</p>
+                    </div>
+                </div>
+
+                <div class="da-upload-area" id="da-upload-area">
+                    <input type="file" id="da-video-input" accept="video/*" style="display:none;">
+                    <div class="da-drop-zone" id="da-drop-zone">
+                        <i class="ri-video-upload-line"></i>
+                        <p>Drop a video file here or</p>
+                        <button class="btn-disha btn-violet" id="da-browse-btn">
+                            <i class="ri-folder-video-line"></i> Browse Video
+                        </button>
+                        <span class="da-hint">MP4, MOV, WebM · Max 60s for best results on 4GB RAM</span>
+                    </div>
+                </div>
+
+                <!-- Video Preview -->
+                <div id="da-preview-section" style="display:none;">
+                    <video id="da-video-preview" class="da-video-preview" controls></video>
+                    <div class="da-controls">
+                        <button class="btn-disha btn-violet" id="da-analyze-btn">
+                            <i class="ri-brain-line"></i> Run CLAW Deep Analysis
+                        </button>
+                        <button class="btn-disha" id="da-clear-btn" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:var(--text-muted);">
+                            <i class="ri-close-line"></i> Clear
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analysis Loading -->
+                <div id="da-loading" style="display:none;" class="da-loading-state">
+                    <div class="disha-spinner" style="border-top-color:#a78bfa;"></div>
+                    <div>
+                        <p id="da-loading-msg" style="color:white; font-weight:600;">Running facial analysis...</p>
+                        <p style="color:var(--text-muted); font-size:0.85rem;">This may take 30-90 seconds. All processing is on your device.</p>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="da-results" style="display:none;" class="da-results">
+
+                    <!-- Backend Unavailable Notice -->
+                    <div id="da-backend-notice" style="display:none;" class="da-notice">
+                        <i class="ri-information-line"></i>
+                        <span>Python backend not running. <a href="#" id="da-backend-help">How to start it →</a></span>
+                    </div>
+
+                    <div class="da-results-grid">
+                        <!-- Vocal Signals -->
+                        <div class="da-result-card">
+                            <h5><i class="ri-sound-module-line" style="color:#a78bfa;"></i> Vocal Signals</h5>
+                            <div class="da-metric-row"><span>Speech Rate</span><span id="da-speech-rate" class="da-metric-val">—</span></div>
+                            <div class="da-metric-row"><span>Rate Assessment</span><span id="da-rate-assess" class="da-metric-val da-small">—</span></div>
+                            <div class="da-metric-row"><span>Pitch Variation</span><span id="da-pitch" class="da-metric-val">—</span></div>
+                            <div class="da-metric-row"><span>Pitch Assessment</span><span id="da-pitch-assess" class="da-metric-val da-small">—</span></div>
+                            <div class="da-metric-row"><span>Word Count</span><span id="da-words" class="da-metric-val">—</span></div>
+                        </div>
+
+                        <!-- Facial Signals -->
+                        <div class="da-result-card">
+                            <h5><i class="ri-emotion-line" style="color:#38bdf8;"></i> Facial Signals</h5>
+                            <div class="da-metric-row"><span>Smile Frequency</span><span id="da-smile" class="da-metric-val">—</span></div>
+                            <div class="da-metric-row"><span>Eye Contact</span><span id="da-eye" class="da-metric-val">—</span></div>
+                            <div class="da-metric-row"><span>Dominant Emotion</span><span id="da-emotion" class="da-metric-val">—</span></div>
+                        </div>
+
+                        <!-- CLAW Tone Scores -->
+                        <div class="da-result-card da-tone-card-full">
+                            <h5><i class="ri-brain-line" style="color:#f59e0b;"></i> CLAW Decision Tree — Tone Scores</h5>
+                            <div class="tone-bars" id="da-tone-bars"></div>
+                            <div class="da-dominant-badge" id="da-dominant-badge"></div>
+                        </div>
+                    </div>
+
+                    <!-- Transcript -->
+                    <div class="da-transcript-box">
+                        <div class="transcript-label"><i class="ri-file-text-line"></i> Transcription (Faster-Whisper, local)</div>
+                        <div id="da-transcript" class="transcript-text" style="margin-top:0.5rem;"></div>
+                    </div>
+
+                    <!-- CLAW Coaching Tips -->
+                    <div class="da-coaching-box" id="da-coaching-box" style="display:none;">
+                        <h5><i class="ri-lightbulb-flash-line"></i> CLAW Coaching Tips</h5>
+                        <ul id="da-coaching-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History -->
+            <div class="history-section" id="history-section" style="display:none;">
+                <h4><i class="ri-history-line"></i> Session Check-ins</h4>
+                <div id="checkin-list" class="checkin-list"></div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script type="module" src="/voice.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const s = document.getElementById('sidebar');
+            s.style.transform = s.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+        });
+    </script>
+</body>
+</html>

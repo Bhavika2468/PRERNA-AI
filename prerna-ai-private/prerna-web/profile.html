@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Complete Your Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body class="profile-page">
+
+    <!-- Animated background blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <div class="profile-wrapper">
+        
+        <!-- Step Progress Header -->
+        <div class="profile-header">
+            <div class="logo" style="font-size: 1.4rem; margin-bottom: 0.5rem;">PRERNA AI</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Setting up your secure, personalized space</p>
+
+            <div class="step-progress">
+                <div class="step active" id="step-dot-1"><span>1</span></div>
+                <div class="step-line"></div>
+                <div class="step" id="step-dot-2"><span>2</span></div>
+                <div class="step-line"></div>
+                <div class="step" id="step-dot-3"><span>3</span></div>
+            </div>
+        </div>
+
+        <!-- STEP 1: Personal Info -->
+        <div class="form-card" id="step-1">
+            <div class="step-icon"><i class="ri-user-smile-line"></i></div>
+            <h3>Tell us about yourself</h3>
+            <p>This helps us personalize your experience and find the right scholarships for you.</p>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Full Name <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="ri-user-3-line"></i>
+                        <input type="text" id="full-name" placeholder="e.g. Priya Sharma" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Your Age <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="ri-calendar-line"></i>
+                        <input type="number" id="age" placeholder="e.g. 18" min="10" max="30" required>
+                    </div>
+                    <span class="field-hint">Ages 17-20 unlock scholarship matching!</span>
+                </div>
+                <div class="form-group full-width">
+                    <label>Email Address <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" id="email" placeholder="e.g. priya@example.com" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-error" id="step1-error" style="display:none;"></div>
+            <button class="btn-next" id="next-1"><span>Next</span> <i class="ri-arrow-right-line"></i></button>
+        </div>
+
+        <!-- STEP 2: Academic Info -->
+        <div class="form-card hidden" id="step-2">
+            <div class="step-icon" style="background: linear-gradient(135deg, rgba(86,216,228,0.2), rgba(56,189,248,0.2)); border-color: rgba(86,216,228,0.3); color: var(--secondary);">
+                <i class="ri-book-open-line"></i>
+            </div>
+            <h3>Your Academic Journey</h3>
+            <p>This helps our AI find scholarships that precisely match your education level.</p>
+
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label>Current Class / Level <span class="req">*</span></label>
+                    <div class="select-wrapper">
+                        <i class="ri-graduation-cap-line"></i>
+                        <select id="class-level" required>
+                            <option value="" disabled selected>Select your class...</option>
+                            <option value="class_9">Class 9</option>
+                            <option value="class_10">Class 10</option>
+                            <option value="class_11">Class 11</option>
+                            <option value="class_12">Class 12</option>
+                            <option value="ug_year1">UG - 1st Year</option>
+                            <option value="ug_year2">UG - 2nd Year</option>
+                            <option value="ug_year3">UG - 3rd Year</option>
+                            <option value="postgraduate">Post Graduate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label>District / Village <span class="req">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="ri-map-pin-2-line"></i>
+                        <input type="text" id="location" placeholder="e.g. Alwar, Rajasthan" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-error" id="step2-error" style="display:none;"></div>
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn-back" id="back-2"><i class="ri-arrow-left-line"></i> Back</button>
+                <button class="btn-next" id="next-2" style="flex:1;"><span>Next</span> <i class="ri-arrow-right-line"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 3: Emergency Contact & Finish -->
+        <div class="form-card hidden" id="step-3">
+            <div class="step-icon" style="background: linear-gradient(135deg, rgba(192,132,252,0.2), rgba(216,180,254,0.2)); border-color: rgba(192,132,252,0.3); color: #c084fc;">
+                <i class="ri-shield-keyhole-line"></i>
+            </div>
+            <h3>Safety & Privacy</h3>
+            <p>This is optional but helps our Sahara Support feature provide emergency assistance on your behalf safely.</p>
+
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label>Parent / Guardian Mobile</label>
+                    <div class="input-wrapper">
+                        <i class="ri-phone-line"></i>
+                        <input type="tel" id="parent-mobile" placeholder="e.g. +91 98765 43210">
+                    </div>
+                    <span class="field-hint"><i class="ri-lock-2-line"></i> Encrypted. Used only in emergencies by Sahara.</span>
+                </div>
+            </div>
+
+            <div class="form-error" id="step3-error" style="display:none;"></div>
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn-back" id="back-3"><i class="ri-arrow-left-line"></i> Back</button>
+                <button class="btn-finish" id="save-profile">
+                    <i class="ri-check-double-line"></i> <span>Complete Setup & Enter Dashboard</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success State (hidden) -->
+        <div class="form-card hidden" id="step-success">
+            <div class="success-animation">
+                <i class="ri-checkbox-circle-fill"></i>
+            </div>
+            <h3>Welcome to PRERNA AI!</h3>
+            <p id="welcome-msg">Your personalized dashboard is ready. Redirecting you now...</p>
+        </div>
+
+    </div>
+
+    <script type="module" src="/profile.js"></script>
+</body>
+</html>

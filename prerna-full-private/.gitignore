@@ -1,0 +1,28 @@
+# Dependencies and build outputs
+node_modules/
+dist/
+dist-ssr/
+target/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local env/secrets
+.env
+.env.*
+!.env.example
+
+# Logs and OS/editor noise
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Local runtime/session artifacts
+.claude/sessions/
+.claw/sessions/
+rust/.claude/sessions/
+rust/.claw/sessions/
+rust/.sandbox-home/

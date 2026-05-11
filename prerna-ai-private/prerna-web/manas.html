@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Manas — Mental Wellbeing</title>
+    <meta name="description" content="Manas — Your personal mental wellbeing companion. Powered by CLAW Signal Logic, not external APIs.">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="manas.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">PRERNA AI</div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="ri-dashboard-line"></i> Overview</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-group-line"></i> Students</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-user-star-line"></i> Mentors</a></li>
+            <li class="nav-item"><a href="scholarships.html" class="nav-link"><i class="ri-graduation-cap-line"></i> Scholarships</a></li>
+            <li class="nav-item"><a href="chat.html" class="nav-link"><i class="ri-robot-2-line"></i> AI Assistant</a></li>
+            <li class="nav-item"><a href="sahara.html" class="nav-link" style="color:#c084fc;"><i class="ri-heart-pulse-line"></i> Sahara Support</a></li>
+            <li class="nav-item"><a href="disha.html" class="nav-link" style="color:#38bdf8;"><i class="ri-compass-discover-line"></i> Disha Navigator</a></li>
+            <li class="nav-item"><a href="voice.html" class="nav-link" style="color:#a78bfa;"><i class="ri-mic-2-line"></i> Voice Navigator</a></li>
+            <li class="nav-item"><a href="manas.html" class="nav-link active manas-active"><i class="ri-mental-health-line"></i> Manas Wellbeing</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ri-menu-line"></i></button>
+                <h1 class="page-title">🧠 Manas — Mental Wellbeing</h1>
+            </div>
+            <div class="user-profile">
+                <span class="manas-badge"><i class="ri-shield-check-line"></i> Private & Secure</span>
+            </div>
+        </header>
+
+        <!-- ⚠️ Crisis Banner -->
+        <div class="crisis-banner" id="crisis-banner" style="display:none;">
+            <i class="ri-alarm-warning-fill"></i>
+            <div>
+                <strong>You are not alone.</strong> If you are in immediate danger, please call:
+                <a href="tel:988">iCall: 9152987821</a> &nbsp;|&nbsp;
+                <a href="tel:1098">Childline: 1098</a> &nbsp;|&nbsp;
+                <a href="tel:112">Emergency: 112</a>
+            </div>
+            <button id="close-crisis-banner"><i class="ri-close-line"></i></button>
+        </div>
+
+        <div class="manas-container">
+
+            <!-- ── INTRO HERO ── -->
+            <div class="manas-hero" id="manas-hero">
+                <div class="manas-hero-orb">
+                    <div class="manas-orb-ring">
+                        <div class="manas-orb">🧠</div>
+                    </div>
+                </div>
+                <div class="manas-hero-text">
+                    <h2>Meet Your Wellbeing Team</h2>
+                    <p>Three specialized AI agents work together to understand you, build your action plan, and design your long-term recovery path — all powered by CLAW Signal Logic, running entirely on your device.</p>
+                    <div class="agent-team-row">
+                        <div class="agent-pill agent-assess">
+                            <span class="agent-icon">🧠</span>
+                            <div>
+                                <strong>Assessment Agent</strong>
+                                <span>Analyzes your emotional signals</span>
+                            </div>
+                        </div>
+                        <div class="agent-arrow"><i class="ri-arrow-right-line"></i></div>
+                        <div class="agent-pill agent-action">
+                            <span class="agent-icon">🎯</span>
+                            <div>
+                                <strong>Action Agent</strong>
+                                <span>Connects you with resources</span>
+                            </div>
+                        </div>
+                        <div class="agent-arrow"><i class="ri-arrow-right-line"></i></div>
+                        <div class="agent-pill agent-followup">
+                            <span class="agent-icon">🔄</span>
+                            <div>
+                                <strong>Follow-up Agent</strong>
+                                <span>Plans your recovery milestones</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── STEP 1: INPUT FORM ── -->
+            <div class="manas-card" id="manas-form-section">
+                <div class="manas-card-header">
+                    <i class="ri-survey-line"></i>
+                    <div>
+                        <h3>Tell Your Wellbeing Team About You</h3>
+                        <p>Your answers stay private — nothing is stored without your permission.</p>
+                    </div>
+                </div>
+
+                <form id="manas-form">
+                    <!-- Emotional State -->
+                    <div class="form-group">
+                        <label for="manas-mental-state">
+                            <i class="ri-emotion-line"></i> How have you been feeling recently?
+                        </label>
+                        <textarea id="manas-mental-state" rows="4"
+                            placeholder="Describe your emotional state, thoughts, or what's been on your mind..."></textarea>
+                    </div>
+
+                    <div class="form-row-2">
+                        <!-- Sleep Pattern -->
+                        <div class="form-group">
+                            <label for="manas-sleep">
+                                <i class="ri-moon-line"></i> Sleep (hours per night)
+                            </label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="manas-sleep" min="0" max="12" value="7" step="0.5">
+                                <div class="slider-display">
+                                    <span id="manas-sleep-val">7</span>
+                                    <span class="slider-unit">hrs</span>
+                                </div>
+                            </div>
+                            <div class="slider-labels"><span>0h</span><span>6h</span><span>12h</span></div>
+                        </div>
+
+                        <!-- Stress Level -->
+                        <div class="form-group">
+                            <label for="manas-stress">
+                                <i class="ri-pulse-line"></i> Current Stress Level
+                            </label>
+                            <div class="slider-wrapper">
+                                <input type="range" id="manas-stress" min="1" max="10" value="5">
+                                <div class="slider-display">
+                                    <span id="manas-stress-val">5</span>
+                                    <span class="slider-unit">/10</span>
+                                </div>
+                            </div>
+                            <div class="slider-labels"><span>Calm</span><span>Moderate</span><span>Critical</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Support System -->
+                    <div class="form-group">
+                        <label><i class="ri-team-line"></i> Current Support System</label>
+                        <div class="chip-select" id="support-chips">
+                            <button type="button" class="chip" data-value="Family">Family</button>
+                            <button type="button" class="chip" data-value="Friends">👫 Friends</button>
+                            <button type="button" class="chip" data-value="Therapist">🩺 Therapist</button>
+                            <button type="button" class="chip" data-value="Support Groups">🤝 Support Groups</button>
+                            <button type="button" class="chip" data-value="Teacher">📚 Teacher/Mentor</button>
+                            <button type="button" class="chip chip-none" data-value="None">😶 None right now</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Changes -->
+                    <div class="form-group">
+                        <label for="manas-changes">
+                            <i class="ri-refresh-line"></i> Any significant life changes recently?
+                        </label>
+                        <textarea id="manas-changes" rows="2"
+                            placeholder="Job, exams, relationships, family, loss... anything that changed."></textarea>
+                    </div>
+
+                    <!-- Symptoms -->
+                    <div class="form-group">
+                        <label><i class="ri-heart-pulse-line"></i> Current Symptoms (select all that apply)</label>
+                        <div class="chip-select" id="symptom-chips">
+                            <button type="button" class="chip" data-value="Anxiety">😰 Anxiety</button>
+                            <button type="button" class="chip" data-value="Depression">😔 Depression</button>
+                            <button type="button" class="chip" data-value="Insomnia">🌙 Insomnia</button>
+                            <button type="button" class="chip" data-value="Fatigue">🥱 Fatigue</button>
+                            <button type="button" class="chip" data-value="Loss of Interest">💤 Loss of Interest</button>
+                            <button type="button" class="chip" data-value="Difficulty Concentrating">🧩 Can't Focus</button>
+                            <button type="button" class="chip" data-value="Changes in Appetite">🍽️ Appetite Changes</button>
+                            <button type="button" class="chip" data-value="Social Withdrawal">🚪 Social Withdrawal</button>
+                            <button type="button" class="chip" data-value="Mood Swings">🎭 Mood Swings</button>
+                            <button type="button" class="chip" data-value="Physical Discomfort">😣 Physical Discomfort</button>
+                        </div>
+                    </div>
+
+                    <!-- CLAW Signal Link -->
+                    <div class="claw-signal-link">
+                        <i class="ri-link-m"></i>
+                        <span>Want a deeper analysis?</span>
+                        <a href="voice.html" class="signal-link-btn">
+                            <i class="ri-mic-2-line"></i> Run CLAW Voice Analysis first
+                        </a>
+                        <span class="signal-link-hint">Results will auto-fill the biometric signals here.</span>
+                    </div>
+
+                    <button type="submit" id="manas-submit-btn" class="manas-submit-btn">
+                        <i class="ri-brain-line"></i>
+                        Start Wellbeing Assessment
+                        <span class="btn-subtitle">3 CLAW Agents will analyze your inputs</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- ── LOADING STATE: Swarm Pipeline ── -->
+            <div class="manas-swarm-loader" id="manas-loader" style="display:none;">
+                <div class="swarm-pipeline">
+                    <div class="swarm-agent" id="loader-assess">
+                        <div class="swarm-agent-icon">🧠</div>
+                        <div class="swarm-agent-label">Assessment Agent</div>
+                        <div class="swarm-agent-status" id="status-assess">Waiting...</div>
+                        <div class="swarm-progress-bar"><div class="swarm-progress" id="prog-assess"></div></div>
+                    </div>
+                    <div class="swarm-arrow"><i class="ri-arrow-right-line"></i></div>
+                    <div class="swarm-agent" id="loader-action">
+                        <div class="swarm-agent-icon">🎯</div>
+                        <div class="swarm-agent-label">Action Agent</div>
+                        <div class="swarm-agent-status" id="status-action">Waiting...</div>
+                        <div class="swarm-progress-bar"><div class="swarm-progress" id="prog-action"></div></div>
+                    </div>
+                    <div class="swarm-arrow"><i class="ri-arrow-right-line"></i></div>
+                    <div class="swarm-agent" id="loader-followup">
+                        <div class="swarm-agent-icon">🔄</div>
+                        <div class="swarm-agent-label">Follow-up Agent</div>
+                        <div class="swarm-agent-status" id="status-followup">Waiting...</div>
+                        <div class="swarm-progress-bar"><div class="swarm-progress" id="prog-followup"></div></div>
+                    </div>
+                </div>
+                <p class="loader-subtitle">Running CLAW Signal Logic — no API calls needed</p>
+            </div>
+
+            <!-- ── RESULTS SECTION ── -->
+            <div id="manas-results" style="display:none;">
+
+                <!-- Wellness Score Card -->
+                <div class="wellness-score-card" id="wellness-score-card">
+                    <div class="ws-left">
+                        <div class="ws-score-ring" id="ws-ring">
+                            <svg viewBox="0 0 100 100" class="ws-svg">
+                                <circle class="ws-bg" cx="50" cy="50" r="40"/>
+                                <circle class="ws-fill" id="ws-circle" cx="50" cy="50" r="40"
+                                    stroke-dasharray="251.3"
+                                    stroke-dashoffset="251.3"/>
+                            </svg>
+                            <div class="ws-score-text">
+                                <span id="ws-score-num">--</span>
+                                <span class="ws-score-label">Wellness</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ws-right">
+                        <h3 id="ws-trigger-title">Analyzing...</h3>
+                        <p id="ws-clinical-summary"></p>
+                        <div class="ws-scores-row" id="ws-scores-row"></div>
+                    </div>
+                </div>
+
+                <!-- Prerna Voice Message -->
+                <div class="prerna-voice-card" id="prerna-voice-card">
+                    <div class="pv-header">
+                        <div class="pv-avatar">🌸</div>
+                        <div>
+                            <h4>Prerna Didi says</h4>
+                            <span class="pv-mode" id="pv-mode">Wellbeing Guidance</span>
+                        </div>
+                        <button class="pv-speak-btn" id="pv-speak-btn" title="Read aloud">
+                            <i class="ri-volume-up-line"></i>
+                        </button>
+                    </div>
+                    <div class="pv-text" id="pv-text"></div>
+                </div>
+
+                <!-- 3-Panel Results -->
+                <div class="results-panels">
+
+                    <!-- Panel 1: Assessment -->
+                    <details class="result-panel panel-assess" open>
+                        <summary class="panel-header">
+                            <span class="panel-icon">🧠</span>
+                            <div>
+                                <strong>Situation Assessment</strong>
+                                <span>CLAW Signal Analysis</span>
+                            </div>
+                            <i class="ri-arrow-down-s-line panel-chevron"></i>
+                        </summary>
+                        <div class="panel-body" id="panel-assess-body"></div>
+                    </details>
+
+                    <!-- Panel 2: Action Plan -->
+                    <details class="result-panel panel-action">
+                        <summary class="panel-header">
+                            <span class="panel-icon">🎯</span>
+                            <div>
+                                <strong>Action Plan & Resources</strong>
+                                <span>NGO Resource Match</span>
+                            </div>
+                            <i class="ri-arrow-down-s-line panel-chevron"></i>
+                        </summary>
+                        <div class="panel-body" id="panel-action-body"></div>
+                    </details>
+
+                    <!-- Panel 3: Follow-up -->
+                    <details class="result-panel panel-followup">
+                        <summary class="panel-header">
+                            <span class="panel-icon">🔄</span>
+                            <div>
+                                <strong>Long-term Support Strategy</strong>
+                                <span>Milestone Planner</span>
+                            </div>
+                            <i class="ri-arrow-down-s-line panel-chevron"></i>
+                        </summary>
+                        <div class="panel-body" id="panel-followup-body"></div>
+                    </details>
+
+                </div>
+
+                <!-- Daily Mission Card -->
+                <div class="daily-mission-card" id="daily-mission-card">
+                    <div class="dm-header">
+                        <i class="ri-sun-line"></i>
+                        <h4>Today's Wellness Mission</h4>
+                        <span class="dm-badge">CLAW Daily</span>
+                    </div>
+                    <div class="dm-missions" id="dm-missions"></div>
+                    <div class="dm-checkin">
+                        <i class="ri-calendar-check-line"></i>
+                        <span>Next check-in: <strong id="dm-next-checkin">—</strong></span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="manas-action-row">
+                    <button class="manas-action-btn btn-sahara" onclick="window.location.href='sahara.html'">
+                        <i class="ri-heart-pulse-line"></i> Open Sahara Safe Space
+                    </button>
+                    <button class="manas-action-btn btn-restart" id="manas-restart-btn">
+                        <i class="ri-refresh-line"></i> New Assessment
+                    </button>
+                    <button class="manas-action-btn btn-save" id="manas-save-btn">
+                        <i class="ri-save-line"></i> Save to Profile
+                    </button>
+                </div>
+
+                <!-- Warning Notice -->
+                <div class="manas-disclaimer">
+                    <i class="ri-information-line"></i>
+                    This tool is a supportive guide, not a replacement for professional mental health care.
+                    If you are in crisis, please call <strong>iCall: 9152987821</strong> or <strong>Childline: 1098</strong>.
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="/manas.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const s = document.getElementById('sidebar');
+            s.style.transform = s.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+        });
+    </script>
+</body>
+</html>

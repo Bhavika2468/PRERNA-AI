@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Disha Navigator</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="disha.css">
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">PRERNA AI</div>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="ri-dashboard-line"></i> Overview</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-group-line"></i> Students</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="ri-user-star-line"></i> Mentors</a></li>
+            <li class="nav-item"><a href="scholarships.html" class="nav-link"><i class="ri-graduation-cap-line"></i> Scholarships</a></li>
+            <li class="nav-item"><a href="chat.html" class="nav-link"><i class="ri-robot-2-line"></i> AI Assistant</a></li>
+            <li class="nav-item"><a href="sahara.html" class="nav-link" style="color:#c084fc;"><i class="ri-heart-pulse-line"></i> Sahara Support</a></li>
+            <li class="nav-item"><a href="disha.html" class="nav-link active" style="color:#38bdf8; border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08);"><i class="ri-compass-discover-line"></i> Disha Navigator</a></li>
+            <li class="nav-item"><a href="manas.html" class="nav-link" style="color:#6ee7b7;"><i class="ri-mental-health-line"></i> Manas Wellbeing</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="ri-menu-line"></i></button>
+                <h2 class="page-title">Disha — Career & Study Navigator</h2>
+            </div>
+            <div class="user-profile">
+                <i class="ri-compass-discover-line" style="font-size:1.2rem; color: var(--secondary);"></i>
+                <span id="header-user-name">Loading...</span>
+            </div>
+        </header>
+
+        <div class="disha-container">
+
+            <!-- Tab Navigation -->
+            <div class="disha-tabs">
+                <button class="tab-btn active" data-tab="scout">
+                    <i class="ri-search-2-line"></i> Knowledge Scout
+                </button>
+                <button class="tab-btn" data-tab="roadmap">
+                    <i class="ri-road-map-line"></i> Career Roadmap
+                </button>
+                <button class="tab-btn" data-tab="mentor">
+                    <i class="ri-user-voice-line"></i> Ask a Professional
+                </button>
+            </div>
+
+            <!-- ====== TAB 1: KNOWLEDGE SCOUT ====== -->
+            <div class="tab-content active" id="tab-scout">
+                <div class="disha-hero-card">
+                    <div class="disha-hero-icon" style="color: var(--secondary);">
+                        <i class="ri-search-eye-line"></i>
+                    </div>
+                    <h3>Knowledge Scout</h3>
+                    <p>Struggling with a topic? Type it below and I'll hunt down the top 3 free, verified study resources for you — from NCERT, SWAYAM, YouTube, and more.</p>
+
+                    <form id="scout-form" class="disha-form">
+                        <div class="disha-input-row">
+                            <div class="disha-input-wrapper">
+                                <i class="ri-book-2-line"></i>
+                                <input type="text" id="scout-topic" placeholder='e.g. "Photosynthesis" or "Tally ERP"' required>
+                            </div>
+                            <button type="submit" id="scout-btn" class="btn-disha btn-cyan">
+                                <i class="ri-send-plane-fill"></i> Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Scout Results -->
+                <div id="scout-results" class="disha-results" style="display:none;">
+                    <div class="results-header">
+                        <h4><i class="ri-file-list-3-line"></i> Study Guide: <span id="scout-topic-label"></span></h4>
+                        <span class="cached-badge" id="cache-badge" style="display:none;"><i class="ri-database-2-line"></i> Served from cache</span>
+                    </div>
+                    <div id="scout-cards" class="resource-grid"></div>
+                </div>
+            </div>
+
+            <!-- ====== TAB 2: CAREER ROADMAP ====== -->
+            <div class="tab-content" id="tab-roadmap">
+                <div class="disha-hero-card">
+                    <div class="disha-hero-icon" style="color: #f59e0b;">
+                        <i class="ri-road-map-line"></i>
+                    </div>
+                    <h3>Career Quest Map</h3>
+                    <p>What do you want to become? Enter your dream career and I'll generate a personalized 5-step roadmap from where you are right now to your goal.</p>
+
+                    <form id="roadmap-form" class="disha-form">
+                        <div class="disha-input-row">
+                            <div class="disha-input-wrapper">
+                                <i class="ri-award-line"></i>
+                                <input type="text" id="career-goal" placeholder='e.g. "Bank Manager", "Nurse", "Software Engineer"' required>
+                            </div>
+                            <button type="submit" id="roadmap-btn" class="btn-disha btn-amber">
+                                <i class="ri-magic-line"></i> Generate
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Roadmap Results -->
+                <div id="roadmap-results" class="disha-results" style="display:none;">
+                    <div class="results-header">
+                        <h4><i class="ri-route-line"></i> Your Quest Map: <span id="roadmap-goal-label"></span></h4>
+                    </div>
+                    <div id="roadmap-steps" class="quest-map"></div>
+                    <div class="roadmap-footer">
+                        <button id="save-roadmap-btn" class="btn-disha btn-amber">
+                            <i class="ri-save-line"></i> Save My Roadmap
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== TAB 3: ASK A PROFESSIONAL ====== -->
+            <div class="tab-content" id="tab-mentor">
+                <div class="disha-hero-card">
+                    <div class="disha-hero-icon" style="color: #c084fc;">
+                        <i class="ri-user-voice-line"></i>
+                    </div>
+                    <h3>Ask a Professional</h3>
+                    <p>Choose a profession and the AI will simulate a real conversation with that professional — giving you a taste of the real world!</p>
+
+                    <div class="profession-grid" id="profession-grid">
+                        <button class="profession-card" data-role="nurse" data-emoji="🏥">
+                            <span class="prof-emoji">🏥</span>
+                            <span>Nurse</span>
+                        </button>
+                        <button class="profession-card" data-role="software engineer" data-emoji="💻">
+                            <span class="prof-emoji">💻</span>
+                            <span>Software Engineer</span>
+                        </button>
+                        <button class="profession-card" data-role="bank manager" data-emoji="🏦">
+                            <span class="prof-emoji">🏦</span>
+                            <span>Bank Manager</span>
+                        </button>
+                        <button class="profession-card" data-role="teacher" data-emoji="📚">
+                            <span class="prof-emoji">📚</span>
+                            <span>Teacher</span>
+                        </button>
+                        <button class="profession-card" data-role="doctor" data-emoji="🩺">
+                            <span class="prof-emoji">🩺</span>
+                            <span>Doctor</span>
+                        </button>
+                        <button class="profession-card" data-role="entrepreneur" data-emoji="🚀">
+                            <span class="prof-emoji">🚀</span>
+                            <span>Entrepreneur</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mentor Chat (hidden) -->
+                <div id="mentor-chat-section" style="display:none;" class="disha-hero-card" style="padding: 0; overflow: hidden;">
+                    <div class="mentor-header">
+                        <div class="mentor-avatar" id="mentor-avatar">💼</div>
+                        <div>
+                            <h4 id="mentor-title">Professional Name</h4>
+                            <span style="color: #2ecc71; font-size: 0.85rem;">AI Simulation — Career Mode</span>
+                        </div>
+                        <button id="change-prof-btn" style="margin-left:auto; background:transparent; border:1px solid rgba(255,255,255,0.1); color:var(--text-muted); padding:0.4rem 0.8rem; border-radius:8px; cursor:pointer; font-size:0.8rem;">Change</button>
+                    </div>
+                    <div class="mentor-chat-body" id="mentor-chat-body"></div>
+                    <div class="secure-chat-input">
+                        <input type="text" id="mentor-input" placeholder="Ask anything about this career...">
+                        <button id="mentor-send-btn"><i class="ri-send-plane-fill"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- end disha-container -->
+    </main>
+
+    <script type="module" src="/disha.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.transform = sidebar.style.transform === 'translateX(0px)' ? 'translateX(-100%)' : 'translateX(0px)';
+        });
+    </script>
+</body>
+</html>

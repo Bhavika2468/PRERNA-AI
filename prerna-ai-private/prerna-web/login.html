@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="card-header">
+                <div class="logo-icon">
+                    <i class="ri-robot-2-line"></i>
+                </div>
+                <h2 class="text">PRERNA AI Login</h2>
+                <p class="subtitle">Enter your details to access the portal</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="ri-mail-line"></i>
+                        <input type="email" id="email" placeholder="mentor@ngo.org" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="ri-lock-line"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <div class="forgot-pass">
+                    <a href="#">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">Login</button>
+                
+                <div class="signup-link">
+                    <span id="mode-prefix">Not a member? </span>
+                    <a href="#" id="toggle-mode-btn" class="toggle-link">Signup now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

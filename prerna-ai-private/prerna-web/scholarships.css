@@ -1,0 +1,261 @@
+/* Scholarships specific styling */
+
+.gate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+    padding: 2rem;
+}
+
+.gate-card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.gate-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(255, 46, 147, 0.2), rgba(255, 138, 191, 0.2));
+    border: 1px solid rgba(255, 46, 147, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 20px rgba(255, 46, 147, 0.2);
+}
+
+.gate-card h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.gate-card p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.error-msg {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 75, 75, 0.1);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    border-radius: 12px;
+    color: #ff8585;
+    font-size: 0.9rem;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Scholarship Grid */
+.section-header {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.section-header h3 {
+    font-size: 1.8rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h3 i {
+    color: var(--primary);
+}
+
+.scholarship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem 2rem;
+}
+
+.scholarship-card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 46, 147, 0.4);
+    box-shadow: 0 15px 30px rgba(255, 46, 147, 0.15);
+}
+
+.sch-badge {
+    align-self: flex-start;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(86, 216, 228, 0.2), rgba(56, 189, 248, 0.2));
+    color: var(--secondary);
+    border: 1px solid rgba(86, 216, 228, 0.3);
+}
+
+.sch-title {
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.sch-source {
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.sch-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.sch-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sch-deadline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.sch-deadline span:first-child {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sch-deadline span:last-child {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.sch-deadline span:last-child i {
+    color: #ff8585;
+}
+
+.btn-apply {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-apply:hover {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    transform: scale(1.05);
+}
+
+/* Loading state */
+.loading-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    color: var(--text-muted);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 46, 147, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* AI Actions */
+.btn-ai-action {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-ai-action:hover:not(:disabled) {
+    background: rgba(255, 46, 147, 0.1);
+    color: var(--primary);
+    border-color: rgba(255, 46, 147, 0.3);
+}
+
+.btn-ai-action:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

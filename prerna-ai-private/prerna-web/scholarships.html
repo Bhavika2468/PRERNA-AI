@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Scholarships</title>
+    <!-- Modern Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="scholarships.css">
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">PRERNA AI</div>
+        
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-dashboard-line"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-group-line"></i> Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-user-star-line"></i> Mentors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="scholarships.html" class="nav-link active">
+                    <i class="ri-graduation-cap-line"></i> Scholarships
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html" class="nav-link">
+                    <i class="ri-robot-2-line"></i> AI Assistant
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sahara.html" class="nav-link" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.3);">
+                    <i class="ri-heart-pulse-line"></i> Sahara Support
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="disha.html" class="nav-link" style="color: #38bdf8; border-color: rgba(56,189,248,0.3);">
+                    <i class="ri-compass-discover-line"></i> Disha Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="voice.html" class="nav-link" style="color: #a78bfa; border-color: rgba(167,139,250,0.3);">
+                    <i class="ri-mic-2-line"></i> Voice Navigator
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="header">
+            <h2 class="page-title">Scholarship Finder</h2>
+            
+            <div class="user-profile">
+                <i class="ri-user-smile-line" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                <span id="header-user-name">Loading Profile...</span>
+                <button id="logout-btn" class="logout-btn">
+                    <i class="ri-logout-box-r-line"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- Scholarships Section — loads directly, no age gate -->
+        <div id="scholarships-section">
+            <div class="section-header">
+                <h3><i class="ri-sparkling-line"></i> Available Scholarships</h3>
+                <p class="subtitle">Verified opportunities you can apply to right now, ranked by best match.</p>
+            </div>
+
+            <div id="scholarship-grid" class="scholarship-grid">
+                <!-- Loading spinner -->
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Fetching opportunities...</p>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <!-- Core Scripts -->
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/scholarships.js"></script>
+</body>
+</html>

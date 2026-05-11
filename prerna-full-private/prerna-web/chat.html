@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Assistant</title>
+    <!-- Modern Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo">PRERNA AI</div>
+        
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-dashboard-line"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-group-line"></i> Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-user-star-line"></i> Mentors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="scholarships.html" class="nav-link">
+                    <i class="ri-graduation-cap-line"></i> Scholarships
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html" class="nav-link active">
+                    <i class="ri-robot-2-line"></i> AI Assistant
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sahara.html" class="nav-link" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.3);">
+                    <i class="ri-heart-pulse-line"></i> Sahara Support
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="disha.html" class="nav-link" style="color: #38bdf8; border-color: rgba(56,189,248,0.3);">
+                    <i class="ri-compass-discover-line"></i> Disha Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="voice.html" class="nav-link" style="color: #a78bfa; border-color: rgba(167,139,250,0.3);">
+                    <i class="ri-mic-2-line"></i> Voice Navigator
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content chat-layout">
+        <!-- Top Header -->
+        <header class="header">
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <h2 class="page-title">AI Assistant</h2>
+            </div>
+            
+            <div class="user-profile">
+                <i class="ri-user-smile-line" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                <span id="header-user-name">Loading...</span>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <!-- System Greeting -->
+                <div class="message ai-message">
+                    <div class="message-avatar">
+                        <i class="ri-robot-2-fill"></i>
+                    </div>
+                    <div class="message-content">
+                        Hello! I am your PRERNA AI Assistant. How can I help you support students today?
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input-wrapper">
+                <form id="chat-form" class="chat-form">
+                    <textarea 
+                        id="chat-input" 
+                        placeholder="Ask the AI Assistant..." 
+                        rows="1"
+                        required></textarea>
+                    <button type="submit" id="send-btn" class="send-btn">
+                        <i class="ri-send-plane-fill"></i>
+                    </button>
+                </form>
+                <div class="chat-footer">
+                    Powered by InsForge AI & Claude Code Architecture
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script to populate data -->
+    <script type="module" src="/chat.js"></script>
+    <script>
+        // Simple mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.style.transform === 'translateX(0px)') {
+                sidebar.style.transform = 'translateX(-100%)';
+            } else {
+                sidebar.style.transform = 'translateX(0px)';
+            }
+        });
+    </script>
+</body>
+</html>

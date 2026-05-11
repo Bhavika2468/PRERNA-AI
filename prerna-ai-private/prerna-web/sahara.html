@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Sahara Support</title>
+    <!-- Modern Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="sahara.css">
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">PRERNA AI</div>
+        
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-dashboard-line"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-group-line"></i> Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ri-user-star-line"></i> Mentors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="scholarships.html" class="nav-link">
+                    <i class="ri-graduation-cap-line"></i> Scholarships
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html" class="nav-link">
+                    <i class="ri-robot-2-line"></i> AI Assistant
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sahara.html" class="nav-link active" style="color: #c084fc; border-color: #c084fc; background: rgba(192, 132, 252, 0.1);">
+                    <i class="ri-heart-pulse-line"></i> Sahara Support
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="disha.html" class="nav-link" style="color: #38bdf8; border-color: rgba(56,189,248,0.3);">
+                    <i class="ri-compass-discover-line"></i> Disha Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="voice.html" class="nav-link" style="color: #a78bfa; border-color: rgba(167,139,250,0.3);">
+                    <i class="ri-mic-2-line"></i> Voice Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="manas.html" class="nav-link" style="color: #6ee7b7; border-color: rgba(110,231,183,0.3);">
+                    <i class="ri-mental-health-line"></i> Manas Wellbeing
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="header">
+            <h2 class="page-title">Sahara - A Safe Space</h2>
+            
+            <div class="user-profile">
+                <span class="incognito-badge"><i class="ri-shield-keyhole-line"></i> Secure & Private</span>
+            </div>
+        </header>
+
+        <div class="sahara-container">
+            <!-- Hero / Input Section -->
+            <div id="expression-section" class="sahara-card">
+                <div class="hero-icon">
+                    <i class="ri-hand-heart-line"></i>
+                </div>
+                <h3>We are here to listen.</h3>
+                <p>This is a completely private and encrypted space. Whatever you write here is safe. What's on your mind?</p>
+                
+                <form id="sahara-form">
+                    <textarea id="issue-text" placeholder="I am facing an issue with..." rows="5" required></textarea>
+                    <button type="submit" id="analyze-btn" class="btn-primary btn-lavender">
+                        <i class="ri-magic-line"></i> Find Help
+                    </button>
+                </form>
+            </div>
+
+            <!-- Matched NGO Section (Hidden by default) -->
+            <div id="match-section" class="sahara-card" style="display: none;">
+                <div class="match-header">
+                    <i class="ri-map-pin-user-line" style="font-size: 2rem; color: #c084fc;"></i>
+                    <div>
+                        <h3>We found someone who can help nearby.</h3>
+                        <p id="intent-badge" class="intent-badge">[Intent: Unknown]</p>
+                    </div>
+                </div>
+
+                <div id="ngo-details" class="ngo-box">
+                    <h4 id="ngo-name">NGO Name</h4>
+                    <p id="ngo-desc">Description of the NGO...</p>
+                    
+                    <div class="ngo-meta">
+                        <span><i class="ri-map-pin-2-line"></i> <span id="ngo-location">Location</span></span>
+                        <span><i class="ri-phone-line"></i> <span id="ngo-phone">Phone</span></span>
+                    </div>
+
+                    <button id="quick-connect-btn" class="btn-primary btn-lavender" style="width: 100%; margin-top: 1.5rem;">
+                        <i class="ri-message-3-line"></i> Quick Connect (Secure Chat)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Secure Chat UI (Hidden by default) -->
+            <div id="secure-chat-section" class="sahara-card" style="display: none; padding: 0; overflow: hidden;">
+                <div class="secure-chat-header">
+                    <div class="sch-avatar"><i class="ri-customer-service-2-fill"></i></div>
+                    <div>
+                        <h4 id="chat-ngo-name">NGO Representative</h4>
+                        <span class="status-online">Online Now - End-to-End Encrypted</span>
+                    </div>
+                </div>
+                
+                <div class="secure-chat-body" id="secure-chat-body">
+                    <div class="chat-bubble system-bubble">
+                        <i class="ri-lock-fill"></i> Secure bridge established. Your phone number is hidden.
+                    </div>
+                    <!-- Messages will be injected here -->
+                </div>
+                
+                <div class="secure-chat-input">
+                    <input type="text" id="secure-input" placeholder="Type a message securely...">
+                    <button id="secure-send-btn"><i class="ri-send-plane-fill"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Core Scripts -->
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/sahara.js"></script>
+</body>
+</html>

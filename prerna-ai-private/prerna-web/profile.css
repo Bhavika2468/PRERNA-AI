@@ -1,0 +1,285 @@
+/* Profile Setup Page Styles */
+
+body.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+/* Animated Background Blobs */
+.bg-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+.blob-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,46,147,0.12), transparent 70%);
+    top: -100px; left: -100px;
+}
+.blob-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(192,132,252,0.12), transparent 70%);
+    bottom: -50px; right: -50px;
+}
+
+.profile-wrapper {
+    width: 100%;
+    max-width: 560px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Header */
+.profile-header {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.step-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 1.5rem;
+}
+
+.step {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.15);
+    display: flex; justify-content: center; align-items: center;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 15px rgba(255,46,147,0.4);
+}
+
+.step.done {
+    background: rgba(46,204,113,0.2);
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.step-line {
+    flex: 1;
+    height: 2px;
+    max-width: 60px;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.3s ease;
+}
+
+.step-line.done {
+    background: #2ecc71;
+}
+
+/* Form Card */
+.form-card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+}
+
+.form-card.hidden {
+    display: none;
+}
+
+.step-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(255,46,147,0.2), rgba(255,138,191,0.2));
+    border: 1px solid rgba(255,46,147,0.3);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.form-card h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.form-card > p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.req { color: var(--primary); }
+
+.input-wrapper, .select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i, .select-wrapper i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.select-wrapper select {
+    width: 100%;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 12px;
+    padding: 0.85rem 1rem 0.85rem 2.8rem;
+    color: #1a1a2e;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Fix browser autofill turning input background blue/yellow */
+.input-wrapper input:-webkit-autofill,
+.select-wrapper select:-webkit-autofill {
+    -webkit-text-fill-color: #1a1a2e;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(240,240,255,0.95) inset;
+}
+
+
+.select-wrapper select option {
+    background: #1a1a2e;
+    color: white;
+}
+
+.input-wrapper input:focus,
+.select-wrapper select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255,46,147,0.05);
+    box-shadow: 0 0 0 4px rgba(255,46,147,0.1);
+}
+
+.field-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Buttons */
+.btn-next, .btn-finish {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-next:hover, .btn-finish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255,46,147,0.3);
+}
+
+.btn-back {
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-back:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+}
+
+/* Error */
+.form-error {
+    background: rgba(255,75,75,0.1);
+    border: 1px solid rgba(255,75,75,0.3);
+    border-radius: 12px;
+    color: #ff8585;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Success */
+.success-animation {
+    font-size: 5rem;
+    color: #2ecc71;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    animation: pulse 1s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.05); opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-card { padding: 1.5rem; }
+}
