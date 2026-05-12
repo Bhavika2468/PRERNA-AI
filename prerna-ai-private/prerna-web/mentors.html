@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Mentor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="mentors.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">PRERNA AI</div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-dashboard-line"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="students.html" class="nav-link">
+                    <i class="ri-group-line"></i> Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="mentors.html" class="nav-link active">
+                    <i class="ri-user-star-line"></i> Mentors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="scholarships.html" class="nav-link">
+                    <i class="ri-graduation-cap-line"></i> Scholarships
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html" class="nav-link">
+                    <i class="ri-robot-2-line"></i> AI Assistant
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sahara.html" class="nav-link" style="color: #a855f7;">
+                    <i class="ri-heart-pulse-line"></i> Sahara Support
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="disha.html" class="nav-link" style="color: #f472b6;">
+                    <i class="ri-compass-discover-line"></i> Disha Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="voice.html" class="nav-link" style="color: #ec4899;">
+                    <i class="ri-mic-2-line"></i> Voice Navigator
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2 class="page-title">Mentor Management</h2>
+            </div>
+            <div class="user-profile">
+                <i class="ri-user-smile-line"></i>
+                <span>Admin</span>
+                <button class="logout-btn"><i class="ri-logout-box-r-line"></i> Logout</button>
+            </div>
+        </header>
+
+        <section class="mentor-network-hero">
+            <div class="mentor-network-copy">
+                <span><i class="ri-node-tree"></i> Mentor network online</span>
+                <h1>Match the right guide to the right student.</h1>
+                <p>Track expertise, verification, mentor load, and student reach with a glowing relationship map built for fast action.</p>
+            </div>
+            <div class="network-map" aria-hidden="true">
+                <div class="network-core"><i class="ri-user-star-line"></i></div>
+                <div class="network-dot dot-a"></div>
+                <div class="network-dot dot-b"></div>
+                <div class="network-dot dot-c"></div>
+                <div class="network-dot dot-d"></div>
+                <div class="network-line line-a"></div>
+                <div class="network-line line-b"></div>
+                <div class="network-line line-c"></div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Section -->
+        <div class="filter-section">
+            <div class="search-bar">
+                <i class="ri-search-line"></i>
+                <input type="text" id="searchMentors" placeholder="Search mentors by name or expertise...">
+            </div>
+            <button class="btn btn-primary" id="addMentorBtn">
+                <i class="ri-add-line"></i> Add New Mentor
+            </button>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-star-smile-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Total Mentors</div>
+                    <div class="stat-value" id="totalMentors">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-user-check-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Verified</div>
+                    <div class="stat-value" id="verifiedMentors">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-group-2-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Students Mentored</div>
+                    <div class="stat-value" id="totalMentored">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-rating-star-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Avg. Rating</div>
+                    <div class="stat-value" id="avgRating">4.8</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mentors Grid -->
+        <div class="mentors-container">
+            <div class="container-header">
+                <h3>Mentor Directory</h3>
+                <div class="container-controls">
+                    <select id="filterExpertise">
+                        <option value="">All Expertise</option>
+                        <option value="academics">Academics</option>
+                        <option value="career">Career</option>
+                        <option value="personal">Personal Development</option>
+                        <option value="skills">Skills Training</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mentors-grid" id="mentorsGrid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Adding/Editing Mentors -->
+    <div id="mentorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Mentor</h3>
+                <button class="modal-close" type="button">&times;</button>
+            </div>
+            <form id="mentorForm" class="modal-form">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="mentorName" required placeholder="Enter mentor name">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="mentorEmail" required placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="mentorPhone" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label>Expertise *</label>
+                    <select id="mentorExpertise" required>
+                        <option value="">Select expertise</option>
+                        <option value="academics">Academics</option>
+                        <option value="career">Career Guidance</option>
+                        <option value="personal">Personal Development</option>
+                        <option value="skills">Skills Training</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea id="mentorBio" placeholder="Write mentor bio..." rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="mentorStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Mentor</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="mentors.js" defer></script>
+</body>
+</html>

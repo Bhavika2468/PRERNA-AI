@@ -1,0 +1,359 @@
+/* PRERNA AI - Design System & Enhanced Styles */
+
+/* ============================================
+   Color Palette & Tokens
+   ============================================ */
+:root {
+  /* Primary Colors */
+  --primary: #d946ef;
+  --primary-light: #f0abfc;
+  --primary-dark: #a21caf;
+  
+  /* Accent Colors */
+  --accent-blue: #f472b6;
+  --accent-purple: #a855f7;
+  --accent-pink: #ec4899;
+  
+  /* Background */
+  --bg-color: #17051f;
+  --bg-secondary: #2a0f3f;
+  
+  /* Glass Morphism */
+  --glass-bg: rgba(42, 15, 63, 0.68);
+  --glass-bg-light: rgba(83, 31, 111, 0.42);
+  
+  /* Borders & Accents */
+  --border-color: rgba(236, 72, 153, 0.22);
+  --border-color-hover: rgba(244, 114, 182, 0.42);
+  
+  /* Text Colors */
+  --text-main: #f1f5f9;
+  --text-secondary: #f5d0fe;
+  --text-muted: #d8b4fe;
+  
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #c026d3;
+}
+
+/* ============================================
+   Typography Scale
+   ============================================ */
+.heading-1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.heading-2 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.heading-3 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  line-height: 1.4;
+}
+
+.body-lg {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.body-md {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.body-sm {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ============================================
+   Component: Cards
+   ============================================ */
+.card {
+  background: linear-gradient(135deg, var(--glass-bg), var(--glass-bg-light));
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  border-color: var(--border-color-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(236, 72, 153, 0.22);
+}
+
+.card-compact {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   Component: Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-pink), var(--primary), var(--accent-purple));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(236, 72, 153, 0.32);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary-light);
+}
+
+.btn-secondary:hover {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: var(--primary-light);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 12px;
+}
+
+/* ============================================
+   Component: Badges
+   ============================================ */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid;
+  transition: all 0.3s ease;
+}
+
+.badge-primary {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(168, 85, 247, 0.12));
+  color: var(--primary-light);
+  border-color: rgba(236, 72, 153, 0.34);
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badge-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.32);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(217, 70, 239, 0.5);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #fdf4ff, var(--primary-light), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--accent-pink), var(--primary), var(--accent-purple));
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+}
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+.shadow-lg {
+  box-shadow: 0 20px 50px rgba(236, 72, 153, 0.22);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-main), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   Responsive Grid
+   ============================================ */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Accessibility & Focus States
+   ============================================ */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* ============================================
+   Scrollbar Styling (Webkit)
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(236, 72, 153, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-pink), var(--primary));
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--primary-light), var(--accent-purple));
+}

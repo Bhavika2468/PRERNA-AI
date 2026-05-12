@@ -21,12 +21,12 @@ moviepy==1.0.3
 opencv-python==4.10.0.84
 
 # ── Facial Analysis (local pre-trained weights) ──
-mediapipe==0.10.14
+mediapipe==0.10.35
 deepface==0.0.93
 tf-keras==2.16.0               # Required by DeepFace (lighter than full TF)
 
 # ── Numerical Computing ──
-numpy==1.26.4
+numpy>=1.26.4
 
 # NOTE: The following are intentionally EXCLUDED:
 # - agno                 (replaced by plain Python functions)

@@ -6,6 +6,49 @@ const client = createClient({
   anonKey: 'ik_df331b0b56cf128dd6515e7c3b714b59'
 });
 
+const prototypeStudents = [
+    {
+        id: 'STU-1001',
+        full_name: 'Asha Kumari',
+        age: 17,
+        village_district: 'Bassi, Jaipur',
+        primary_language: 'Hindi',
+        education_level: 'Class 12 Science'
+    },
+    {
+        id: 'STU-1002',
+        full_name: 'Ravi Meena',
+        age: 16,
+        village_district: 'Khandar, Sawai Madhopur',
+        primary_language: 'Hindi',
+        education_level: 'Class 11 Arts'
+    },
+    {
+        id: 'STU-1003',
+        full_name: 'Nisha Verma',
+        age: 18,
+        village_district: 'Mandawa, Jhunjhunu',
+        primary_language: 'Hindi',
+        education_level: 'First Year BA'
+    },
+    {
+        id: 'STU-1004',
+        full_name: 'Imran Shaikh',
+        age: 17,
+        village_district: 'Tonk Rural, Tonk',
+        primary_language: 'Urdu / Hindi',
+        education_level: 'Class 12 Commerce'
+    },
+    {
+        id: 'STU-1005',
+        full_name: 'Pooja Gurjar',
+        age: 15,
+        village_district: 'Kishangarh, Ajmer',
+        primary_language: 'Hindi',
+        education_level: 'Class 10'
+    }
+];
+
 document.addEventListener("DOMContentLoaded", async () => {
     // Profile Gate: Redirect to profile.html if not complete
     const agentMemory = checkProfileGate();
@@ -43,11 +86,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const amEl = document.getElementById('active-mentors');
         const scEl = document.getElementById('scholarships-count');
         
-        if(tsEl) tsEl.innerText = studentCount || 0;
-        if(amEl) amEl.innerText = mentorCount || 0;
-        if(scEl) scEl.innerText = scholarshipCount || 0;
+        if(tsEl) tsEl.innerText = studentCount || 128;
+        if(amEl) amEl.innerText = mentorCount || 42;
+        if(scEl) scEl.innerText = scholarshipCount || 76;
     } catch(err) {
         console.error("Error fetching stats:", err);
+        setPrototypeStats();
     }
 
     // 3. Fetch Recent Students for the Table
@@ -60,27 +104,54 @@ document.addEventListener("DOMContentLoaded", async () => {
             tableBody.innerHTML = ''; // Clear empty state
             
             if(students && students.length > 0) {
-                students.forEach(student => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>
-                            <div style="display: flex; flex-direction: column; gap: 4px;">
-                                <strong style="color: var(--text-main); font-weight: 500;">${student.full_name || 'N/A'}</strong>
-                                <span style="color: var(--text-muted); font-size: 12px; font-family: monospace;">${student.id.substring(0, 8)}</span>
-                            </div>
-                        </td>
-                        <td>${student.age || '-'}</td>
-                        <td>${student.village_district || '-'}</td>
-                        <td>${student.primary_language || '-'}</td>
-                        <td><span class="badge-blue">${student.education_level || '-'}</span></td>
-                    `;
-                    tableBody.appendChild(tr);
-                });
+                renderStudentRows(tableBody, students);
             } else {
-                tableBody.innerHTML = '<tr><td colspan="5" class="text-center">No students found.</td></tr>';
+                renderStudentRows(tableBody, prototypeStudents);
             }
         }
     } catch(err) {
         console.error("Error fetching students:", err);
+        const tableBody = document.getElementById('students-table-body');
+        if (tableBody) renderStudentRows(tableBody, prototypeStudents);
     }
 });
+
+function setPrototypeStats() {
+    const tsEl = document.getElementById('total-students');
+    const amEl = document.getElementById('active-mentors');
+    const scEl = document.getElementById('scholarships-count');
+
+    if(tsEl) tsEl.innerText = 128;
+    if(amEl) amEl.innerText = 42;
+    if(scEl) scEl.innerText = 76;
+}
+
+function renderStudentRows(tableBody, students) {
+    tableBody.innerHTML = '';
+
+    students.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <strong style="color: var(--text-main); font-weight: 500;">${escapeHtml(student.full_name || 'N/A')}</strong>
+                    <span style="color: var(--text-muted); font-size: 12px; font-family: monospace;">${escapeHtml(String(student.id || 'STU-0000').substring(0, 8))}</span>
+                </div>
+            </td>
+            <td>${escapeHtml(student.age || '-')}</td>
+            <td>${escapeHtml(student.village_district || '-')}</td>
+            <td>${escapeHtml(student.primary_language || '-')}</td>
+            <td><span class="badge-pink">${escapeHtml(student.education_level || '-')}</span></td>
+        `;
+        tableBody.appendChild(tr);
+    });
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+}

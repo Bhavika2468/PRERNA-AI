@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRERNA AI | Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="students.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">PRERNA AI</div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="ri-dashboard-line"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="students.html" class="nav-link active">
+                    <i class="ri-group-line"></i> Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="mentors.html" class="nav-link">
+                    <i class="ri-user-star-line"></i> Mentors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="scholarships.html" class="nav-link">
+                    <i class="ri-graduation-cap-line"></i> Scholarships
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html" class="nav-link">
+                    <i class="ri-robot-2-line"></i> AI Assistant
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="sahara.html" class="nav-link" style="color: #a855f7;">
+                    <i class="ri-heart-pulse-line"></i> Sahara Support
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="disha.html" class="nav-link" style="color: #f472b6;">
+                    <i class="ri-compass-discover-line"></i> Disha Navigator
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="voice.html" class="nav-link" style="color: #ec4899;">
+                    <i class="ri-mic-2-line"></i> Voice Navigator
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2 class="page-title">Student Management</h2>
+            </div>
+            <div class="user-profile">
+                <i class="ri-user-smile-line"></i>
+                <span>Admin</span>
+                <button class="logout-btn"><i class="ri-logout-box-r-line"></i> Logout</button>
+            </div>
+        </header>
+
+        <section class="student-flow-hero">
+            <div class="flow-copy">
+                <span><i class="ri-radar-line"></i> Student pulse board</span>
+                <h1>Every learner signal, moving live.</h1>
+                <p>Watch profiles, performance, scholarships, and intervention status flow through one high-energy student command view.</p>
+            </div>
+            <div class="flow-visual" aria-hidden="true">
+                <div class="flow-lane lane-one"></div>
+                <div class="flow-lane lane-two"></div>
+                <div class="flow-lane lane-three"></div>
+                <div class="flow-node flow-node-one">92%</div>
+                <div class="flow-node flow-node-two">48</div>
+                <div class="flow-node flow-node-three">A+</div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Section -->
+        <div class="filter-section">
+            <div class="search-bar">
+                <i class="ri-search-line"></i>
+                <input type="text" id="searchStudents" placeholder="Search students by name or ID...">
+            </div>
+            <button class="btn btn-primary" id="addStudentBtn">
+                <i class="ri-add-line"></i> Add New Student
+            </button>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-user-3-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Total Students</div>
+                    <div class="stat-value" id="totalStudents">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-checkbox-circle-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Active</div>
+                    <div class="stat-value" id="activeStudents">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-award-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Scholarship Matched</div>
+                    <div class="stat-value" id="matchedScholarships">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="ri-star-fill"></i></div>
+                <div class="stat-content">
+                    <div class="stat-title">Avg. Performance</div>
+                    <div class="stat-value" id="avgPerformance">8.5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-container">
+            <div class="table-header">
+                <h3>Student Directory</h3>
+                <div class="table-controls">
+                    <select id="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Performance</th>
+                        <th>Scholarships</th>
+                        <th>Joined</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsList">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal for Adding/Editing Students -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Student</h3>
+                <button class="modal-close" type="button">&times;</button>
+            </div>
+            <form id="studentForm" class="modal-form">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="studentName" required placeholder="Enter student name">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="studentEmail" required placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="studentPhone" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="studentStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Performance Score (0-10)</label>
+                    <input type="number" id="studentPerformance" min="0" max="10" placeholder="Enter score">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Student</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="students.js" defer></script>
+</body>
+</html>

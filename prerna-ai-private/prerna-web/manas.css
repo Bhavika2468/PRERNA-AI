@@ -1,11 +1,11 @@
 /* ── Manas Mental Wellbeing CSS ── */
 :root {
-  --manas-primary: #6ee7b7;
-  --manas-accent: #34d399;
+  --manas-primary: #f0abfc;
+  --manas-accent: #ec4899;
   --manas-danger: #f87171;
   --manas-warn: #fbbf24;
   --manas-purple: #a78bfa;
-  --manas-glow: rgba(110, 231, 183, 0.18);
+  --manas-glow: rgba(236, 72, 153, 0.2);
 }
 
 /* Crisis Banner */
@@ -25,11 +25,12 @@
 }
 
 /* Active nav item */
-.manas-active { color: #6ee7b7 !important; border-color: rgba(110,231,183,0.35) !important; background: rgba(110,231,183,0.08) !important; }
+.manas-active { color: #f0abfc !important; border-color: rgba(236,72,153,0.35) !important; background: rgba(236,72,153,0.1) !important; }
 .manas-badge {
   display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;
-  color: var(--manas-primary); background: rgba(110,231,183,0.1);
-  border: 1px solid rgba(110,231,183,0.25); border-radius: 20px; padding: 6px 14px;
+  color: var(--manas-primary); background: rgba(236,72,153,0.12);
+  border: 1px solid rgba(244,114,182,0.28); border-radius: 20px; padding: 6px 14px;
+  animation: manasGlowPill 2.8s ease-in-out infinite;
 }
 
 /* Container */
@@ -38,14 +39,31 @@
 /* Hero */
 .manas-hero {
   display: flex; gap: 2rem; align-items: center;
-  background: rgba(110,231,183,0.05); border: 1px solid rgba(110,231,183,0.15);
+  background:
+    radial-gradient(circle at 14% 50%, rgba(236,72,153,0.2), transparent 28%),
+    linear-gradient(135deg, rgba(168,85,247,0.22), rgba(36,5,50,0.82));
+  border: 1px solid rgba(244,114,182,0.28);
   border-radius: 20px; padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 72px rgba(236, 72, 153, 0.14);
+  animation: manasHeroIn 0.75s ease-out both;
+}
+
+.manas-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent, rgba(244,114,182,0.12), transparent);
+  transform: translateX(-120%);
+  animation: manasSweep 6s ease-in-out infinite;
+  pointer-events: none;
 }
 .manas-hero-orb { flex-shrink: 0; }
 .manas-orb-ring {
   width: 90px; height: 90px; border-radius: 50%;
-  border: 2px solid rgba(110,231,183,0.4); display: flex; align-items: center; justify-content: center;
-  animation: orb-spin 8s linear infinite; box-shadow: 0 0 30px rgba(110,231,183,0.2);
+  border: 2px solid rgba(244,114,182,0.4); display: flex; align-items: center; justify-content: center;
+  animation: orb-spin 8s linear infinite; box-shadow: 0 0 34px rgba(236,72,153,0.28);
 }
 @keyframes orb-spin { to { transform: rotate(360deg); } }
 .manas-orb { font-size: 2.5rem; animation: orb-counter 8s linear infinite; }
@@ -64,13 +82,26 @@
 .agent-icon { font-size: 1.4rem; }
 .agent-assess { border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.08); }
 .agent-action { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.08); }
-.agent-followup { border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08); }
+.agent-followup { border-color: rgba(244,114,182,0.3); background: rgba(236,72,153,0.08); }
 .agent-arrow { color: var(--text-muted); font-size: 1.2rem; }
 
 /* Card */
 .manas-card {
-  background: var(--panel-bg); border: 1px solid rgba(110,231,183,0.15);
+  background: var(--panel-bg); border: 1px solid rgba(244,114,182,0.2);
   border-radius: 20px; padding: 2rem; backdrop-filter: blur(16px);
+  animation: manasCardIn 0.65s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+.manas-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(236,72,153,0.08), transparent);
+  transform: translateX(-120%);
+  animation: manasSweep 7s ease-in-out infinite;
+  pointer-events: none;
 }
 .manas-card-header { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem; }
 .manas-card-header i { font-size: 2rem; color: var(--manas-primary); flex-shrink: 0; margin-top: 0.2rem; }
@@ -140,20 +171,21 @@
 /* Submit Button */
 .manas-submit-btn {
   width: 100%; padding: 1.2rem; border-radius: 14px; border: none; cursor: pointer;
-  background: linear-gradient(135deg, #059669, #10b981); color: white;
+  background: linear-gradient(135deg, #ec4899, #d946ef, #a855f7); color: white;
   font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700;
   display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
   transition: transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+  box-shadow: 0 4px 24px rgba(236,72,153,0.34);
 }
-.manas-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(16,185,129,0.4); }
+.manas-submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(236,72,153,0.44); }
 .btn-subtitle { font-size: 0.78rem; font-weight: 400; opacity: 0.8; }
 .manas-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
 /* Swarm Loader */
 .manas-swarm-loader {
-  background: var(--panel-bg); border: 1px solid rgba(110,231,183,0.15);
+  background: var(--panel-bg); border: 1px solid rgba(244,114,182,0.2);
   border-radius: 20px; padding: 2.5rem; text-align: center;
+  animation: manasCardIn 0.65s ease-out both;
 }
 .swarm-pipeline { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 .swarm-agent {
@@ -173,8 +205,9 @@
 /* Wellness Score Card */
 .wellness-score-card {
   display: flex; gap: 2rem; align-items: center;
-  background: rgba(110,231,183,0.06); border: 1px solid rgba(110,231,183,0.2);
+  background: rgba(236,72,153,0.08); border: 1px solid rgba(244,114,182,0.24);
   border-radius: 20px; padding: 2rem;
+  animation: manasCardIn 0.65s ease-out both;
 }
 .ws-score-ring { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
 .ws-svg { width: 120px; height: 120px; transform: rotate(-90deg); }
@@ -231,7 +264,7 @@
 details[open] .panel-chevron { transform: rotate(180deg); }
 .panel-assess[open] .panel-header { background: rgba(167,139,250,0.08); }
 .panel-action[open] .panel-header { background: rgba(251,191,36,0.08); }
-.panel-followup[open] .panel-header { background: rgba(56,189,248,0.08); }
+.panel-followup[open] .panel-header { background: rgba(236,72,153,0.08); }
 .panel-body { padding: 1.2rem 1.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
 .panel-body ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
 .panel-body ul li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; line-height: 1.5; }
@@ -259,8 +292,9 @@ details[open] .panel-chevron { transform: rotate(180deg); }
 
 /* Daily Mission */
 .daily-mission-card {
-  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.05));
-  border: 1px solid rgba(16,185,129,0.25); border-radius: 20px; padding: 1.5rem; margin-top: 1.5rem;
+  background: linear-gradient(135deg, rgba(236,72,153,0.14), rgba(168,85,247,0.08));
+  border: 1px solid rgba(244,114,182,0.26); border-radius: 20px; padding: 1.5rem; margin-top: 1.5rem;
+  animation: manasCardIn 0.65s ease-out both;
 }
 .dm-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
 .dm-header i { font-size: 1.5rem; color: var(--manas-primary); }
@@ -311,4 +345,24 @@ details[open] .panel-chevron { transform: rotate(180deg); }
   .weekly-plan-grid { grid-template-columns: 1fr; }
   .wellness-score-card { flex-direction: column; text-align: center; }
   .manas-action-row { flex-direction: column; }
+}
+
+@keyframes manasHeroIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes manasSweep {
+  0%, 50% { transform: translateX(-120%); }
+  82%, 100% { transform: translateX(120%); }
+}
+
+@keyframes manasCardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes manasGlowPill {
+  0%, 100% { box-shadow: 0 0 14px rgba(236,72,153,0.18); }
+  50% { box-shadow: 0 0 30px rgba(217,70,239,0.34); }
 }

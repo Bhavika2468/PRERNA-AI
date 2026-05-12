@@ -6,6 +6,8 @@
     <title>PRERNA AI | Premium Dashboard</title>
     <!-- Modern Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Design System -->
+    <link rel="stylesheet" href="design-system.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="dashboard.css">
 </head>
@@ -22,12 +24,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="students.html" class="nav-link">
                     <i class="ri-group-line"></i> Students
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="mentors.html" class="nav-link">
                     <i class="ri-user-star-line"></i> Mentors
                 </a>
             </li>
@@ -42,17 +44,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="sahara.html" class="nav-link" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.3);">
+                <a href="sahara.html" class="nav-link" style="color: #a855f7; border-color: rgba(168, 85, 247, 0.3);">
                     <i class="ri-heart-pulse-line"></i> Sahara Support
                 </a>
             </li>
             <li class="nav-item">
-                <a href="disha.html" class="nav-link" style="color: #38bdf8; border-color: rgba(56,189,248,0.3);">
+                <a href="disha.html" class="nav-link" style="color: #f472b6; border-color: rgba(244, 114, 182, 0.3);">
                     <i class="ri-compass-discover-line"></i> Disha Navigator
                 </a>
             </li>
             <li class="nav-item">
-                <a href="voice.html" class="nav-link" style="color: #a78bfa; border-color: rgba(167,139,250,0.3);">
+                <a href="voice.html" class="nav-link" style="color: #ec4899; border-color: rgba(236, 72, 153, 0.3);">
                     <i class="ri-mic-2-line"></i> Voice Navigator
                 </a>
             </li>
@@ -63,10 +65,12 @@
     <main class="main-content">
         <!-- Top Header -->
         <header class="header">
-            <h2 class="page-title">Dashboard Overview</h2>
+            <div class="header-left">
+                <h2 class="page-title">Dashboard Overview</h2>
+            </div>
             
             <div class="user-profile">
-                <i class="ri-user-smile-line" style="font-size: 1.2rem; color: var(--secondary);"></i>
+                <i class="ri-user-smile-line" style="font-size: 1.3rem; color: var(--accent-pink);"></i>
                 <span id="header-user-name">Loading Profile...</span>
                 <button id="logout-btn" class="logout-btn">
                     <i class="ri-logout-box-r-line"></i> Logout
@@ -74,23 +78,150 @@
             </div>
         </header>
 
+        <section class="hero-command neon-panel" aria-label="PRERNA AI command center">
+            <div class="hero-copy">
+                <div class="hero-chip"><i class="ri-pulse-line"></i> Neon command center active</div>
+                <h1>PRERNA impact engine</h1>
+                <p>Track students, mentors, scholarships, risk signals, and intervention momentum from one glowing control room.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="students.html"><i class="ri-group-line"></i> Manage Students</a>
+                    <a class="btn btn-secondary" href="mentors.html"><i class="ri-user-star-line"></i> View Mentors</a>
+                </div>
+            </div>
+            <div class="hero-orbit" aria-hidden="true">
+                <div class="orbit-ring ring-one"></div>
+                <div class="orbit-ring ring-two"></div>
+                <div class="orbit-core">
+                    <span>128</span>
+                    <small>students live</small>
+                </div>
+                <div class="orbit-node node-one"><i class="ri-award-line"></i></div>
+                <div class="orbit-node node-two"><i class="ri-heart-pulse-line"></i></div>
+                <div class="orbit-node node-three"><i class="ri-flashlight-line"></i></div>
+            </div>
+        </section>
+
         <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-card">
+                <div class="stat-kicker"><i class="ri-sparkling-line"></i> Live cohort</div>
                 <div class="stat-title">Total Students</div>
                 <div class="stat-value" id="total-students">0</div>
+                <div class="stat-trend">+18 this month</div>
             </div>
             
             <div class="stat-card">
+                <div class="stat-kicker"><i class="ri-flashlight-line"></i> Mentor network</div>
                 <div class="stat-title">Active Mentors</div>
                 <div class="stat-value" id="active-mentors">0</div>
+                <div class="stat-trend">92% response rate</div>
             </div>
             
             <div class="stat-card">
+                <div class="stat-kicker"><i class="ri-award-line"></i> Matching engine</div>
                 <div class="stat-title">Scholarships Found</div>
                 <div class="stat-value" id="scholarships-count">0</div>
+                <div class="stat-trend">₹42L potential aid</div>
             </div>
         </div>
+
+        <!-- Raw Data Overview -->
+        <section class="overview-grid" aria-label="Raw dashboard data">
+            <div class="overview-panel neon-panel">
+                <div class="panel-heading">
+                    <h3>Raw Impact Data</h3>
+                    <span>Prototype snapshot</span>
+                </div>
+                <div class="raw-data-grid">
+                    <div class="raw-metric">
+                        <span>At-risk cases</span>
+                        <strong>24</strong>
+                        <small>8 urgent</small>
+                    </div>
+                    <div class="raw-metric">
+                        <span>Mentor sessions</span>
+                        <strong>156</strong>
+                        <small>31 pending</small>
+                    </div>
+                    <div class="raw-metric">
+                        <span>Applications</span>
+                        <strong>89</strong>
+                        <small>46 submitted</small>
+                    </div>
+                    <div class="raw-metric">
+                        <span>Villages covered</span>
+                        <strong>37</strong>
+                        <small>12 districts</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overview-panel neon-panel">
+                <div class="panel-heading">
+                    <h3>Student Pipeline</h3>
+                    <span>Current week</span>
+                </div>
+                <div class="pipeline-list">
+                    <div class="pipeline-row">
+                        <span>Profile completed</span>
+                        <div class="pipeline-track"><div style="width: 86%"></div></div>
+                        <strong>86%</strong>
+                    </div>
+                    <div class="pipeline-row">
+                        <span>Mentor assigned</span>
+                        <div class="pipeline-track"><div style="width: 71%"></div></div>
+                        <strong>71%</strong>
+                    </div>
+                    <div class="pipeline-row">
+                        <span>Scholarship matched</span>
+                        <div class="pipeline-track"><div style="width: 64%"></div></div>
+                        <strong>64%</strong>
+                    </div>
+                    <div class="pipeline-row">
+                        <span>Follow-up done</span>
+                        <div class="pipeline-track"><div style="width: 58%"></div></div>
+                        <strong>58%</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="activity-strip neon-panel" aria-label="Recent dashboard activity">
+            <div class="panel-heading">
+                <h3>Recent Raw Activity</h3>
+                <span>Auto-updated prototype feed</span>
+            </div>
+            <div class="activity-grid">
+                <div class="activity-item">
+                    <i class="ri-user-heart-line"></i>
+                    <div>
+                        <strong>Asha Kumari matched</strong>
+                        <span>STEM scholarship, confidence 94%</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="ri-user-star-line"></i>
+                    <div>
+                        <strong>Dr. Kavita accepted</strong>
+                        <span>3 new mentoring slots opened</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="ri-alarm-warning-line"></i>
+                    <div>
+                        <strong>8 urgent follow-ups</strong>
+                        <span>Attendance risk detected today</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="ri-funds-line"></i>
+                    <div>
+                        <strong>₹4.8L aid shortlisted</strong>
+                        <span>12 students ready to apply</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Data Table -->
         <div class="table-container">
