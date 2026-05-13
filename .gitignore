@@ -25,3 +25,18 @@ status-help.txt
 .roo
 .trae
 .windsurf
+
+# Sensitive/Private Files - DO NOT PUSH
+scraper_agent.py
+prerna-ai-private/
+prerna-full-private/
+*.bundle
+*.zip
+create_mentors.sql
+setup_db.ps1
+test_db.mjs
+test_client.mjs
+test_realtime.mjs
+.env
+.env.*
+metadata.txt

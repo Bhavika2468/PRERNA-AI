@@ -31,6 +31,34 @@
 Claw Code is the public Rust implementation of the `claw` CLI agent harness.
 The canonical implementation lives in [`rust/`](./rust), and the current source of truth for this repository is **ultraworkers/claw-code**.
 
+## Why Claw Code?
+
+Claw Code is designed to be the most **clawable** coding harness in the ecosystem. While other tools focus on human-first TUI experiences, `claw` prioritizes machine-readable state and deterministic execution.
+
+### Core Principles
+
+-   **State machine first** — Every worker has explicit lifecycle states (`Spawning` → `Ready` → `Running`).
+-   **Events over scraped prose** — Channel output is derived from typed events, not noisy terminal logs.
+-   **Terminal is transport, not truth** — Orchestration state lives above implementation details like tmux.
+-   **Recovery before escalation** — Known failure modes (like trust prompts) auto-heal before asking for help.
+
+## Key Features
+
+-   **Multi-Provider Routing:** Native support for Anthropic, xAI (Grok), OpenAI, and Alibaba DashScope (Qwen).
+-   **MCP Integration:** First-class support for the Model Context Protocol to extend agent capabilities.
+-   **Granular Permissions:** Choose between `read-only`, `workspace-write`, and `danger-full-access`.
+-   **Skills System:** Add custom workspace-level instructions using simple Markdown files.
+-   **Container Ready:** Canonical workflows for Docker and Podman users (see docs).
+
+### Supported Providers
+
+| Provider | Prefix | Auth Env Var |
+| :--- | :--- | :--- |
+| **Anthropic** | `claude-` | `ANTHROPIC_API_KEY` |
+| **OpenAI** | `openai/`, `gpt-` | `OPENAI_API_KEY` |
+| **xAI** | `grok-` | `XAI_API_KEY` |
+| **DashScope** | `qwen-` | `DASHSCOPE_API_KEY` |
+
 > [!IMPORTANT]
 > Start with [`USAGE.md`](./USAGE.md) for build, auth, CLI, session, and parity-harness workflows. Make `claw doctor` your first health check after building, use [`rust/README.md`](./rust/README.md) for crate-level details, read [`PARITY.md`](./PARITY.md) for the current Rust-port checkpoint, and see [`docs/container.md`](./docs/container.md) for the container-first workflow.
 >
