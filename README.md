@@ -10,18 +10,18 @@ In rural India, career guidance is still a luxury.
 Most students only know about a limited number of careers.
 
 They often lack:
-1.Access to mentors
-2.Personalized career counseling
-3.Scholarship awareness
-4.Skill development guidance
-5.Interview preparation
-6.Emotional support and confidence building
+* Access to mentors
+* Personalized career counseling
+* Scholarship awareness
+* Skill development guidance
+* Interview preparation
+* Emotional support and confidence building
 
 As a result:
-1.Students choose careers blindly
-2.Talented girls drop out early
-3.Opportunities remain inaccessible
-4.Potential gets wasted
+* Students choose careers blindly
+* Talented girls drop out early
+* Opportunities remain inaccessible
+* Potential gets wasted
 
 The biggest issue?
 The internet has information.
@@ -34,24 +34,24 @@ That gap inspired us to build PRERNA AI.
 PRERNA AI is an intelligent multilingual career guidance platform specifically designed for rural students.
 
 It combines:
-1.AI-powered career recommendations
-2.Voice-based interaction
-3.Skill-gap analysis
-4.Scholarship discovery
-5.Mentor matching
-6.Emotional confidence analysis
+* AI powered career recommendations
+* Voice based interaction
+* Skill gap analysis
+* Scholarship discovery
+* Mentor matching
+* Emotional confidence analysis
 
 The goal is simple:
 To convert confusion into clarity.
 Instead of giving generic advice, PRERNA AI creates personalized career pathways based on:
-1.Student interests
-2.Learning level
-3.Confidence level
-4.Career aspirations
-5.Available opportunities
+* Student interests
+* Learning level
+* Confidence level
+* Career aspirations
+* Available opportunities
 
 And the best part?
-The entire experience is designed to work in local languages with voice-first interaction.
+The entire experience is designed to work in local languages with voice first interaction.
 
 # UNIQUE SELLING PROPOSITION — WHY PRERNA AI IS DIFFERENT
 
@@ -59,38 +59,39 @@ What makes PRERNA AI unique is that we are not just solving education.
 We are solving accessibility, confidence, mentorship, and opportunity together.
 
 Our core USPs are:
-1.Voice-first accessibility - Designed for low-literacy users.
-2.Multilingual AI interaction - Supports local languages for inclusivity.
-3.Personalized career pathways - Not generic suggestions.
-4.AI + emotional intelligence - Confidence detection through voice analysis.
-5.End-to-end ecosystem - From guidance → roadmap → mentorship → opportunities.
-6.Rural-first design - Built specifically for underserved communities.
+* Voice first accessibility - Designed for low literacy users.
+* Multilingual AI interaction - Supports local languages for inclusivity.
+* Personalized career pathways - Not generic suggestions.
+* AI + emotional intelligence - Confidence detection through voice analysis.
+* End-to-end ecosystem - From guidance → roadmap → mentorship → opportunities.
+* Rural first design - Built specifically for underserved communities.
 
 # INNOVATION & IMPACT
 
 Innovation
 
 PRERNA AI combines:
-1.Artificial Intelligence
-2.Voice technology
-3.Career counseling
-4.Emotional AI
-5.Social impact
+* Artificial Intelligence
+* Voice technology
+* Career counseling
+* Emotional AI
+* Social impact
+
 into one integrated ecosystem.
 Instead of static career advice, we generate dynamic and personalized career journeys.
-Our emotion-aware AI layer makes the platform empathetic and adaptive.
+Our emotion aware AI layer makes the platform empathetic and adaptive.
 That’s what makes PRERNA AI different from traditional edtech.
 
 
 Impact
 
 PRERNA AI can:
-1.Increase career awareness
-2.Improve education continuation rates
-3.Reduce opportunity gaps
-4.Increase employability
-5.Build confidence in young girls
-6.Support financial independence
+* Increase career awareness
+* Improve education continuation rates
+* Reduce opportunity gaps
+* Increase employability
+* Build confidence in young girls
+* Support financial independence
 
 Most importantly:
 It empowers rural girls to dream bigger and actually know how to reach those dreams.
@@ -100,50 +101,51 @@ It empowers rural girls to dream bigger and actually know how to reach those dre
 Our vision goes far beyond one platform.
 
 In the future, we aim to:
-1.Expand across rural regions of India
-2.Add support for more regional languages
-3.Build offline support for low-network areas
-4.Integrate with schools and government programs
-5.Partner with NGOs and CSR initiatives
-6.Launch AI-powered micro learning modules
-7.Create district-level AI career labs
+* Expand across rural regions of India
+* Add support for more regional languages
+* Build offline support for low network areas
+* Integrate with schools and government programs
+* Partner with NGOs and CSR initiatives
+* Launch AI powered micro learning modules
+* Create district level AI career labs
 
 Long term, PRERNA AI can scale globally to support underserved communities in other developing countries.
 
 # BUSINESS MODEL
+
 Our business model is designed to be sustainable and scalable.
-1. Freemium Model
+* Freemium Model
 Basic guidance remains free.
 Premium mentorship and advanced interview tools become paid features.
-2. Government Partnerships
+* Government Partnerships
 Schools and rural education programs can integrate PRERNA AI through subscriptions.
-3. CSR Collaborations
+* CSR Collaborations
 Companies can sponsor access for rural students under CSR initiatives.
-4. NGO Partnerships
+* NGO Partnerships
 NGOs can deploy the platform for beneficiaries.
-5. Mentorship Marketplace
+* Mentorship Marketplace
 Verified professionals can provide premium 1-on-1 guidance sessions.
 This creates both social impact and long-term sustainability.
 
 # Features
 
-1.Voice-first interaction for low-literacy users
-2.Multilingual AI chatbot support
-3.AI-powered skill gap and learning analysis
-4.Personalized 3–6 month career roadmaps
-5.Scholarship and opportunity recommendations
-6.Mentor matching system
-7.AI mock interview simulator with feedback
-8.Emotional support and confidence analysis
-9.Student analytics and progress tracking dashboards
+* Voice first interaction for low literacy users
+* Multilingual AI chatbot support
+* AI powered skill gap and learning analysis
+* Personalized 3–6 month career roadmaps
+* Scholarship and opportunity recommendations
+* Mentor matching system
+* AI mock interview simulator with feedback
+* Emotional support and confidence analysis
+* Student analytics and progress tracking dashboards
 
 # Tech Stack
 
-1.Frontend: React.js / HTML / CSS / Tailwind
-2.Backend: Node.js / Express
-3.AI & NLP: OpenAI APIs / NLP models
-4.Database: Firebase / MongoDB
-5.Voice Processing: Speech-to-Text APIs
-6.Data Visualization: Dashboards & Analytics Tools
+* Frontend: React.js / HTML / CSS / Tailwind
+* Backend: Node.js / Express
+* AI & NLP: OpenAI APIs / NLP models
+* Database: Firebase / MongoDB
+* Voice Processing: Speech-to-Text APIs
+* Data Visualization: Dashboards & Analytics Tools
 
 
